@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="docs/assets/logo.svg" alt="SocioFit" width="96" height="96"/>
+<img src="docs/assets/logo.svg" alt="CotizaYa" width="96" height="96"/>
 
-# SocioFit
+# CotizaYa
 
-**Control de membresías para gimnasios y academias, con carnet QR, vencimientos y recordatorios por WhatsApp. Offline-first, sin costos mensuales.**
+**Cotizaciones y recibos en PDF para oficios y pequeños negocios, listos para compartir por WhatsApp. Funciona sin internet.**
 
 <p>
 <img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo"/>
@@ -22,12 +22,12 @@
 
 ## 🚀 Características
 
-- **Socios y planes**: alta de socios con foto, plan mensual/trimestral/anual y precio libre.
-- **Carnet QR**: cada socio tiene un QR para registrar asistencia en la puerta.
-- **Vencimientos**: panel con socios por vencer, vencidos y al día.
-- **Recordatorios locales**: notificaciones en el dispositivo, sin servidor.
-- **Cobro por WhatsApp**: mensaje de pago pre-llenado con un toque.
-- **Caja diaria**: pagos del día y resumen mensual.
+- **Cotizaciones rápidas**: ítems, cantidades, descuentos e impuestos opcionales.
+- **Recibos**: conviértelos desde una cotización aceptada.
+- **PDF con tu marca**: logo, datos y condiciones del negocio.
+- **Compartir por WhatsApp** o cualquier app instalada.
+- **Catálogo propio** de productos y servicios con precios.
+- **Historial de clientes** y estados (pendiente, aceptada, cobrada).
 
 > Sin servidores, sin suscripciones y sin servicios de pago: todos los datos viven en el dispositivo (SQLite).
 
@@ -42,23 +42,23 @@
 
 ### Modelo de datos
 
-- `socios (id, nombre, telefono, foto, creado_en)`
-- `planes (id, nombre, dias, precio)`
-- `membresias (id, socio_id, plan_id, inicio, vence, pagado)`
-- `asistencias (id, socio_id, fecha_hora)`
+- `clientes (id, nombre, telefono, direccion)`
+- `catalogo (id, nombre, unidad, precio)`
+- `documentos (id, tipo, cliente_id, fecha, estado, total)`
+- `items (id, documento_id, descripcion, cantidad, precio)`
 
 ## 🗺️ Roadmap
 
 - [ ] 1. Estructura base y navegación
-- [ ] 2. Socios, planes y membresías
-- [ ] 3. Escaneo QR y asistencias
-- [ ] 4. Recordatorios y WhatsApp
-- [ ] 5. Respaldo/exportación local
+- [ ] 2. Clientes y catálogo
+- [ ] 3. Cotizaciones con ítems
+- [ ] 4. Generación y envío de PDF
+- [ ] 5. Recibos y reportes
 
 ## 📂 Estructura
 
 ```text
-SocioFit/
+CotizaYa/
 ├── app/            # Pantallas y rutas (Expo Router)
 ├── src/
 │   ├── db/         # Esquema y consultas SQLite
@@ -73,8 +73,8 @@ SocioFit/
 Requisitos: Node.js 20+ y la app Expo Go (o un emulador).
 
 ```bash
-git clone https://github.com/Luiss2080/SocioFit.git
-cd SocioFit
+git clone https://github.com/Luiss2080/CotizaYa.git
+cd CotizaYa
 npm install
 npx expo start
 ```
